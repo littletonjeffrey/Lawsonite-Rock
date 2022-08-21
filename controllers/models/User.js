@@ -25,10 +25,10 @@ const userSchema = new Schema(
       match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'not a valid email address']
     },
     //Array of `_id` values referencing the `Thought` model
-    thoughts: [
+    thought: [
       {
       type: Schema.Types.ObjectId,
-      ref: 'Thoughts'
+      ref: 'Thought'
     }
   ],
   //Array of `_id` values referencing the `User` model (self-reference)
