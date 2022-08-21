@@ -44,4 +44,4 @@ const reactionSchema = new Schema(
 );
 
 //exports the schema to be used on other pages
-module.exports = { reactionSchema }
+module.exports = { reactionSchema };
