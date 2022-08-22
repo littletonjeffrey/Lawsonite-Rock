@@ -16,7 +16,7 @@ const thoughtSchema = new Schema(
     //date stamp with getter applied to format it with helper
     createdAt: {
         type: Date,
-        default: Date.now(),
+        default: Date.now(),    
         get: currentDate =>
         dateFormat(currentDate)
       },
