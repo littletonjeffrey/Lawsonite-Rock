@@ -9,7 +9,7 @@
     "dev": "concurrently \" npm run server \" \"npm run front\"",
     "server": "nodemon server.js",
     "front": "",
-    "seed": "node utils/seed",
+    "seed": "node backend/utils/seed",
     "heroku-postbuild": "node utils/seed.js"
   },
   "dependencies": {
