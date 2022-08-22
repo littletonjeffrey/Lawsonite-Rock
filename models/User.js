@@ -48,9 +48,9 @@ const userSchema = new Schema(
   }
 );
 // Create a virtual `friendCount` that gets the number of friend this user has
-postSchema.virtual('friendCount').get(function () {
-  return this.friends.length;
-});
+// postSchema.virtual('friendCount').get(function () {
+//   return this.friends.length;
+// });
 //creates a variable based on this schema
 const User = model('user', userSchema);
 //exports the variable to be used in other pages

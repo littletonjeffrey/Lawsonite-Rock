@@ -1,4 +1,3 @@
-const { createPromptModule } = require('inquirer');
 const { Schema } = require('mongoose');
 // import dateFormat helper
 const dateFormat = require('../utils/dateFormat');
