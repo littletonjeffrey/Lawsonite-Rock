@@ -15,10 +15,10 @@ connection.once('open', async () => {
 
 
 // Add Users to the collection and await the results
-  await User.collection.insertMany(User);
+  await User.collection.insertMany(user);
 
   // Add Thoughts to the collection and await the results
-  await Thought.collection.insertMany(Thought);
+  await Thought.collection.insertMany(thought);
 
   // Log out the seed data to indicate what should appear in the database
   console.table(User);

@@ -1,17 +1,16 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 // Schema to create user model
 const userSchema = new Schema(
   {
-     
     userName: {
       type: String,
       // have to havee a user name
-      required: true, 
+      required: true,
       //limitting length
       max_length: 50,
       //must be unique to the DB
       unique: true,
-      //removes whitespace characters from the begining and end of the username
+      //removes whitespace characters from the begining and end of the userName
       trim: true,
     },
     email: {
@@ -21,25 +20,28 @@ const userSchema = new Schema(
       //limitting length
       max_length: 75,
       //validates that the email is in the proper format
-      match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'not a valid email address']
+      match: [
+        /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+        "not a valid email address",
+      ],
     },
     //Array of `_id` values referencing the `Thought` model
     thought: [
       {
-      type: Schema.Types.ObjectId,
-      ref: 'Thought'
-    }
-  ],
-  //Array of `_id` values referencing the `User` model (self-reference)
+        type: Schema.Types.ObjectId,
+        ref: "Thought",
+      },
+    ],
+    //Array of `_id` values referencing the `User` model (self-reference)
     friends: [
       {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-    }
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
     ],
   },
   {
-   //allows virtuals (friendCount) 
+    //allows virtuals (friendCount)
     toJSON: {
       virtuals: true,
     },
@@ -52,6 +54,6 @@ const userSchema = new Schema(
 //   return this.friends.length;
 // });
 //creates a variable based on this schema
-const User = model('user', userSchema);
+const User = model("user", userSchema);
 //exports the variable to be used in other pages
 module.exports = User;
