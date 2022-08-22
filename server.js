@@ -1,8 +1,8 @@
-
-
-const express = require('express');
-const db = require('./config/connection');
-const routes = require('./routes');
+const express = require("express");
+const db = require("./backend/config/connection");
+const colors = require('colors')
+const path = require('path')
+const publicPath = path.join(process.cwd(), 'frontend', 'dist');
 
 const cwd = process.cwd();
 
@@ -11,10 +11,13 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(routes);
+app.use(express.static(publicPath))
 
-db.once('open', () => {
+app.use('/api/thoughts', require('./backend/routes/thoughtRoute'));
+app.use('/api/user', require('./backend/routes/userRoute'))
+
+db.once("open", () => {
   app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
+    console.log(`Server running on port http://localhost:${PORT}`.rainbow);
   });
 });

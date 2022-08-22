@@ -4,18 +4,23 @@
   "description": "a social media app backend",
   "main": "index.js",
   "license": "MIT",
-
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon index",
+    "dev": "concurrently \" npm run server \" \"npm run front\"",
+    "server": "nodemon server.js",
+    "front": "",
     "seed": "node utils/seed",
     "heroku-postbuild": "node utils/seed.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^6.0.13"
+    "concurrently": "^7.3.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.0.13",
+    "path": "^0.12.7"
   },
   "devDependencies": {
+    "colors": "^1.4.0",
     "nodemon": "^2.0.9"
   }
 }
