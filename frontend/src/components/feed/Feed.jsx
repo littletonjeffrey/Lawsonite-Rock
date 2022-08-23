@@ -7,7 +7,7 @@ export default function Feed() {
   return (
     <div className="text-white border col-start-4 col-end-10">
       <section>
-
+      
       </section>
     </div>
   );
