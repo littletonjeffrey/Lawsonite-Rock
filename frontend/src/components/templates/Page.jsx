@@ -16,12 +16,12 @@ export const Page = (props, {children}) => {
         <meta name="description" content={props.desc} />
       </Helmet>
 
-      <div className="w-full flex-1">
-        <nav className="w-full">
+      <div className="grid grid-cols-12 gap-2">
+        <nav>
           <Sidebar />
         </nav>
 
-        {children}
+        {props.children}
       </div>
     </HelmetProvider>
   );
