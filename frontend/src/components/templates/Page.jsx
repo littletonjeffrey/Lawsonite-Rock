@@ -1,8 +1,7 @@
-import Sidebar from '../sidebar/sidebar'
-import {Helmet} from "react-helmet";
+import Sidebar from "../sidebar/sidebar";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
-
-export const Page = (props) => {
+export const Page = (props, {children}) => {
   const pageTitle = `${
     props.currentPage === "Home"
       ? "SociaLite - A Social network for introverts"
@@ -10,42 +9,20 @@ export const Page = (props) => {
   }`;
 
   return (
-    <>
+    <HelmetProvider className="application">
       <Helmet>
         <title>{pageTitle}</title>
-
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/static/favicon/apple-touch-icon.png"
-          />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/static/favicon/favicon-32x32.png"
-          />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/static/favicon/favicon-16x16.png"
-          />
-
-        <link rel="manifest" href="/static/manifest/site.webmanifest" />
         <meta name="title" content={pageTitle} />
         <meta name="description" content={props.desc} />
-
       </Helmet>
 
-      <main className="w-full flex-1">
-        <nav className="w-full">
-        <Sidebar />
+      <div className="grid grid-cols-12 gap-2">
+        <nav>
+          <Sidebar />
         </nav>
-        
-        {props.children}
 
-      </main>
-    </>
+        {props.children}
+      </div>
+    </HelmetProvider>
   );
 };
