@@ -21,7 +21,7 @@ export const Page = (props, {children}) => {
           <Sidebar />
         </nav>
 
-        {props.children}
+        {children}
       </div>
     </HelmetProvider>
   );

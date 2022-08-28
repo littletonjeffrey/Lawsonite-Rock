@@ -4,8 +4,6 @@ const colors = require("colors");
 const path = require("path");
 const publicPath = path.join(process.cwd(), "frontend", "dist");
 
-const cwd = process.cwd();
-
 const PORT = 3001;
 const app = express();
 
