@@ -1,0 +1,219 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "SociaLite",
+  "dateExported": "2022-08-28T22:17:16.201Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "_id": "99035852-60f9-481f-b1f1-aac22088d62d",
+      "name": "thoughts",
+      "containerId": "",
+      "created": "2022-08-28T20:00:53.594Z",
+      "sortNum": 10000
+    },
+    {
+      "_id": "e42efcbd-e4c4-416e-9ed0-4ad0fbee7f75",
+      "name": "users",
+      "containerId": "",
+      "created": "2022-08-28T20:11:34.187Z",
+      "sortNum": 20000
+    },
+    {
+      "_id": "967c98e0-58bf-4e63-bd8e-e6cfba5fc69c",
+      "name": "friends",
+      "containerId": "e42efcbd-e4c4-416e-9ed0-4ad0fbee7f75",
+      "created": "2022-08-28T20:40:21.143Z",
+      "sortNum": 30000
+    }
+  ],
+  "requests": [
+    {
+      "_id": "caa45fc0-a9be-4cf5-a148-3d4f21ca3d6f",
+      "colId": "cdafe305-4c01-4c5e-a50b-ba049e93e939",
+      "containerId": "99035852-60f9-481f-b1f1-aac22088d62d",
+      "name": "get all thoughts",
+      "url": "http://localhost:3001/api/thoughts",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2022-08-28T20:08:35.827Z",
+      "modified": "2022-08-28T20:09:53.453Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "dcf2682d-db8f-4ce4-8237-d5ba91417acd",
+      "colId": "cdafe305-4c01-4c5e-a50b-ba049e93e939",
+      "containerId": "99035852-60f9-481f-b1f1-aac22088d62d",
+      "name": "get one thought",
+      "url": "http://localhost:3001/api/thoughts/630bdabf7399f6ce381b6f73",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2022-08-28T20:08:44.229Z",
+      "modified": "2022-08-28T21:20:13.024Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "0bfca01d-4ad9-45a0-9617-4fe2b4a8bcfb",
+      "colId": "cdafe305-4c01-4c5e-a50b-ba049e93e939",
+      "containerId": "99035852-60f9-481f-b1f1-aac22088d62d",
+      "name": "create thought",
+      "url": "http://localhost:3001/api/thoughts/",
+      "method": "POST",
+      "sortNum": 40000,
+      "created": "2022-08-28T20:08:54.160Z",
+      "modified": "2022-08-28T20:10:35.844Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"thoughtBody\": \"Test Thought!\",\n  \"userName\": \"imBatman\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "ea3c27b3-c09c-442b-b064-98a510e82995",
+      "colId": "cdafe305-4c01-4c5e-a50b-ba049e93e939",
+      "containerId": "99035852-60f9-481f-b1f1-aac22088d62d",
+      "name": "delete thought",
+      "url": "http://localhost:3001/api/thoughts/630bdc145d341776f0985533",
+      "method": "DELETE",
+      "sortNum": 50000,
+      "created": "2022-08-28T20:09:03.751Z",
+      "modified": "2022-08-28T21:20:34.594Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "b293a261-a79d-47d6-bdd6-ad4ce3df619a",
+      "colId": "cdafe305-4c01-4c5e-a50b-ba049e93e939",
+      "containerId": "99035852-60f9-481f-b1f1-aac22088d62d",
+      "name": "update thought",
+      "url": "http://localhost:3001/api/thoughts/630bdc2f5d341776f0985538",
+      "method": "PUT",
+      "sortNum": 60000,
+      "created": "2022-08-28T20:09:17.398Z",
+      "modified": "2022-08-28T21:21:15.126Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"thoughtBody\": \"Test Thought! It works!!!!\",\n  \"userName\": \"imBatman\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "c63fbc76-d5a2-41be-9a93-b22eb8e8d3d0",
+      "colId": "cdafe305-4c01-4c5e-a50b-ba049e93e939",
+      "containerId": "e42efcbd-e4c4-416e-9ed0-4ad0fbee7f75",
+      "name": "get all users",
+      "url": "http://localhost:3001/api/user",
+      "method": "GET",
+      "sortNum": 70000,
+      "created": "2022-08-28T20:11:41.996Z",
+      "modified": "2022-08-28T20:12:40.401Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "604ed8ae-1165-4012-ad67-d7c4371bbf1b",
+      "colId": "cdafe305-4c01-4c5e-a50b-ba049e93e939",
+      "containerId": "e42efcbd-e4c4-416e-9ed0-4ad0fbee7f75",
+      "name": "get one user",
+      "url": "http://localhost:3001/api/user/630bdabf7399f6ce381b6f6b",
+      "method": "GET",
+      "sortNum": 80000,
+      "created": "2022-08-28T20:11:51.300Z",
+      "modified": "2022-08-28T21:15:23.208Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "38255455-e4da-4af8-8ba3-bd482a274a15",
+      "colId": "cdafe305-4c01-4c5e-a50b-ba049e93e939",
+      "containerId": "e42efcbd-e4c4-416e-9ed0-4ad0fbee7f75",
+      "name": "create user",
+      "url": "http://localhost:3001/api/user/",
+      "method": "POST",
+      "sortNum": 90000,
+      "created": "2022-08-28T20:11:57.810Z",
+      "modified": "2022-08-28T21:13:50.556Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"userName\": \"Yoda\",\n  \"email\": \"yoda@counsel.jedi\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "b5dc98cf-1804-4eb2-a253-cf48d3325a02",
+      "colId": "cdafe305-4c01-4c5e-a50b-ba049e93e939",
+      "containerId": "e42efcbd-e4c4-416e-9ed0-4ad0fbee7f75",
+      "name": "update user",
+      "url": "http://localhost:3001/api/user/630bdabf7399f6ce381b6f6a",
+      "method": "PUT",
+      "sortNum": 100000,
+      "created": "2022-08-28T20:12:05.200Z",
+      "modified": "2022-08-28T21:26:43.440Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"userName\": \"Yoda\",\n  \"email\": \"Yoda@counsel.com\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "f6a85631-0e21-46eb-82e4-dca89fd52725",
+      "colId": "cdafe305-4c01-4c5e-a50b-ba049e93e939",
+      "containerId": "e42efcbd-e4c4-416e-9ed0-4ad0fbee7f75",
+      "name": "delete user",
+      "url": "http://localhost:3001/api/user/630bdaf8b46c0f94a43b907d",
+      "method": "DELETE",
+      "sortNum": 110000,
+      "created": "2022-08-28T20:12:12.254Z",
+      "modified": "2022-08-28T21:16:28.858Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "60c0fc29-c33d-46cd-9992-62e7964d3bab",
+      "colId": "cdafe305-4c01-4c5e-a50b-ba049e93e939",
+      "containerId": "967c98e0-58bf-4e63-bd8e-e6cfba5fc69c",
+      "name": "add friend",
+      "url": "http://localhost:3001/api/user/630bdabf7399f6ce381b6f6e/friends/630bdabf7399f6ce381b6f6d",
+      "method": "POST",
+      "sortNum": 120000,
+      "created": "2022-08-28T20:40:28.782Z",
+      "modified": "2022-08-28T21:16:57.664Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "4cf56dc7-9d5c-4d1d-8fd4-8ce523cf1270",
+      "colId": "cdafe305-4c01-4c5e-a50b-ba049e93e939",
+      "containerId": "967c98e0-58bf-4e63-bd8e-e6cfba5fc69c",
+      "name": "remove friend",
+      "url": "http://localhost:3001/api/user/630bdabf7399f6ce381b6f6e/friends/630bdabf7399f6ce381b6f6d",
+      "method": "DELETE",
+      "sortNum": 130000,
+      "created": "2022-08-28T20:40:36.463Z",
+      "modified": "2022-08-28T21:17:10.366Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    }
+  ]
+}
