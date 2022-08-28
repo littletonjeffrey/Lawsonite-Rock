@@ -41,14 +41,15 @@ const getUsers = (req, res) => {
 
 // Get a single user
 const getSingleUser = (req, res) => {
-  User.findOne({ _id: req.params.userId })
+  const id = req.params.id;
+  User.findOne({ _id: id })
     .select("-__v")
     .then(async (user) =>
       !user
         ? res.status(404).json({ message: "No user with that ID" })
         : res.json({
             user,
-            grade: await grade(req.params.userId),
+            grade: await grade(id),
           })
     )
     .catch((err) => {
@@ -66,13 +67,14 @@ const createUser = (req, res) => {
 
 // Delete a user and remove their thoughts
 const deleteUser = (req, res) => {
-  User.findOneAndRemove({ _id: req.params.userId })
+  const id = req.params.id;
+  User.findOneAndRemove({ _id: id })
     .then((user) =>
       !user
         ? res.status(404).json({ message: "No such user exists" })
         : Thought.findAllAndUpdate(
-            { users: req.params.userId },
-            { $pull: { users: req.params.userId } },
+            { users: id },
+            { $pull: { users: id } },
             { new: true }
           )
     )
@@ -89,12 +91,36 @@ const deleteUser = (req, res) => {
     });
 };
 
+// Update a user
+const updateUser = (req, res) => {
+  const id = req.params.id;
+  console.log(req.bgGreen);
+  User.findOneAndUpdate(
+    { _id: id },
+    { $set: req.body },
+    { runValidators: true, new: true }
+  )
+    .then(async (user) =>
+      !user
+        ? res.status(404).json({ message: "No user with that ID" })
+        : res.json({
+            user,
+            grade: await grade(id),
+          })
+    )
+    .catch((err) => res.status(500).json(err));
+};
+
 // Add a friend to a user
 const addFriend = (req, res) => {
-  console.log(`You and ` + req.body` are now friends.`);
+  const body = req.params.friendId;
+  const { newFriend } = body;
+  const id = req.params.id;
+  console.log(body);
+  console.log(`You and ${body} are now friends.`);
   User.findOneAndUpdate(
-    { _id: req.params.userId },
-    { $addToSet: { friends: req.body } },
+    { _id: id },
+    { $set: { friends: newFriend } },
     { runValidators: true, new: true }
   )
     .then((user) =>
@@ -104,13 +130,17 @@ const addFriend = (req, res) => {
           })
         : res.json(user)
     )
-    .catch((err) => res.status(500).json(err));
+    .catch((err) => {
+      res.status(500).json(err);
+      console.log(err);
+    });
 };
 
 // Remove friend from a user
 const removeFriend = (req, res) => {
+  const id = req.params.id;
   User.findOneAndUpdate(
-    { _id: req.params.userId },
+    { _id: id },
     { $pull: { friend: { friendId: req.params.friendId } } },
     { runValidators: true, new: true }
   )
@@ -127,6 +157,7 @@ module.exports = {
   getSingleUser,
   createUser,
   deleteUser,
+  updateUser,
   addFriend,
   removeFriend,
 };
