@@ -5,11 +5,13 @@ const getThoughts = (req, res) => {
   Thought.find()
     .then((thoughts) => res.json(thoughts))
     .catch((err) => res.status(500).json(err));
-}
+};
 
 // Get a thought
 const getSingleThought = (req, res) => {
-  Thought.findOne({ _id: req.params.thoughtId })
+  const id = req.params.id;
+  console.log(id.red);
+  Thought.findOne({ _id: id })
     .select("-__v")
     .then((thought) =>
       !thought
@@ -17,7 +19,7 @@ const getSingleThought = (req, res) => {
         : res.json(thought)
     )
     .catch((err) => res.status(500).json(err));
-}
+};
 
 // Create a thought
 const createThought = (req, res) => {
@@ -27,24 +29,32 @@ const createThought = (req, res) => {
       console.log(err);
       return res.status(500).json(err);
     });
-}
+};
 
 // Delete a thought
 const deleteThought = (req, res) => {
-  Thought.findOneAndDelete({ _id: req.params.thoughtId })
-    .then((thought) =>
-      !thought
-        ? res.status(404).json({ message: "No thought with that ID" })
-        : Reaction.deleteMany({ _id: { $in: thought.reaction } })
+  const id = req.params.id;
+  Thought.findOneAndDelete({ _id: id })
+    .then((thought) => {
+      if (!thought) {
+        res.status(400).json({ message: "No thought with that ID" });
+      }
+      // Reaction.deleteMany({ _id: { $in: thought.reaction } })
+    })
+    .then(() =>
+      res.status(200).json({ message: "thought and reactions deleted!" })
     )
-    .then(() => res.json({ message: "thought and reactions deleted!" }))
-    .catch((err) => res.status(500).json(err));
-}
+    .catch((err) => {
+      res.status(500).json(err);
+      console.log(err);
+    });
+};
 
 // Update a thought
 const updateThought = (req, res) => {
+  const id = req.params.id;
   Thought.findOneAndUpdate(
-    { _id: req.params.thoughtId },
+    { _id: id },
     { $set: req.body },
     { runValidators: true, new: true }
   )
@@ -54,12 +64,12 @@ const updateThought = (req, res) => {
         : res.json(thought)
     )
     .catch((err) => res.status(500).json(err));
-}
+};
 
 module.exports = {
-    getThoughts,
-    getSingleThought,
-    createThought,
-    deleteThought,
-    updateThought,
-}
+  getThoughts,
+  getSingleThought,
+  createThought,
+  deleteThought,
+  updateThought,
+};
