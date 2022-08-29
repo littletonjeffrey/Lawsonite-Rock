@@ -155,6 +155,7 @@ Don't forget to give the project a star! Thanks again!
   <tr>
 <td align="center"><a href="https://github.com/littletonjeffrey"><img src="https://avatars.githubusercontent.com/u/107085573?v=4" width="100px;" alt="Jeff!"/><br /><sub><b>Jeffery Littleton</b></sub></a></td>
 <td align="center"><a href="https://github.com/andrew87e"><img src="https://avatars.githubusercontent.com/u/106359255?size=100" width="100px;" alt="Andrew!"/><br /><sub><b>Andrew Edwards</b></sub></a></td>
+<td align="center"><a href="https://github.com/Jadentr44"><img src="https://avatars.githubusercontent.com/u/107438209?v=4" width="100px;" alt="Jaden!"/><br /><sub><b>Jaden Rodriguez</b></sub></a></td>
  </tr>
 </table>
 
