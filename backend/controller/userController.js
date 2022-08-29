@@ -69,22 +69,17 @@ const createUser = (req, res) => {
 const deleteUser = (req, res) => {
   const id = req.params.id;
   User.findOneAndRemove({ _id: id })
-    .then((user) =>
-      !user
-        ? res.status(404).json({ message: "No such user exists" })
-        : Thought.findAllAndUpdate(
+  .then(async(user) =>{
+    if(!user) return res.status(404).json("no user with that id");
+      await Thought.findOneAndUpdate(
             { users: id },
             { $pull: { users: id } },
             { new: true }
           )
-    )
-    .then((thought) =>
-      !thought
-        ? res.status(404).json({
-            message: "User deleted, but no thoughts found",
-          })
-        : res.json({ message: "User successfully deleted" })
-    )
+      console.log(user)
+      res.status(200).json("user deleted");
+
+      })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
